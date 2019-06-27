@@ -37,6 +37,6 @@ fi
 touch $BUILD_DIR/google/credentials.json
 printf "%s" "$GSP_CREDENTIALS" > $BUILD_DIR/google/credentials.json
 exec $BUILD_DIR/google/bin/cloud_sql_proxy -credential_file=$BUILD_DIR/google/credentials.json -instances=\$GSP_INSTANCES -dir=/tmp &
-chmod +x $BUILD_DIR/bin/run_cloud_sql_proxy
+# chmod +x $BUILD_DIR/google.bin/run_cloud_sql_proxy
 
 exit 0
