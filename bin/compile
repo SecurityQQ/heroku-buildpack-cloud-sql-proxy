@@ -6,6 +6,8 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
+BUILD_DIR="/app"
+
 if [ ! -f $CACHE_DIR/cloud_sql_proxy ]; then
 	echo "-----> Downloading cloud_sql_proxy"
 	mkdir -p $CACHE_DIR
@@ -16,7 +18,7 @@ echo "-----> Vendoring cloud_sql_proxy into slug"
 if [ ! -d $BUILD_DIR/google/bin ]; then
 	mkdir -p $BUILD_DIR/google/bin
 fi
-cp $CACHE_DIR/cloud_sql_proxy $BUILD_DIR/google/bin
+cp $CACHE_DIR/cloud_sql_proxy /app/google/bin
 chmod +x $BUILD_DIR/google/bin/cloud_sql_proxy
 PATH="$BUILD_DIR/google/bin:$PATH"
 
